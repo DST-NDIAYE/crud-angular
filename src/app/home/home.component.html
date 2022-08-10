@@ -1,1 +1,59 @@
-<p>home works!</p>
+<h1> dst ndiaye </h1>
+
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <h4><b> Liste de mes employer </b></h4>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn btn-success" (click)="AddEmployee()">
+                    <i class="bi bi-person-plus-fill"></i> <span> Ajouter </span>
+                </button>
+
+            </div>
+
+            <table class="table table-success table-striped text-center">
+                <thead>
+                    <tr class="center-align">
+                        <th>id</th>
+                        <th>Prenom</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>N° telephone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of listeEmployer">
+                        <td>{{ employee.id }}</td>
+                        <td>{{ employee.prenom }}</td>
+                        <td>{{ employee.nom }}</td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{ employee.address }}</td>
+                        <td>{{ employee.tel }}</td>
+                        <td>
+                            <a [routerLink]="['/ViewEmployee/', employee.id]" class="btn"> view <i
+                                    class="bi bi-eye-fill  "></i></a>
+                            <a [routerLink]="['/EditEmployee/', employee.id]" class="btn"> add<i
+                                    class="bi bi-pencil-fill"></i></a>
+                            <button type="button" (click)="deleteEmployeeConfirmation()" class="btn">del<i
+                                    class="bi bi-trash3-fill"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td *ngIf="listeEmployer.length === 0" colspan="6">La liste est vide </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-success table-striped">
+    ...
+</table>

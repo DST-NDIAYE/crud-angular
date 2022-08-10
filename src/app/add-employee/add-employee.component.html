@@ -1,1 +1,41 @@
-<p>add-employee works!</p>
+<div class="container">
+    <div class="row mt-4 ">
+        <div class="col-sm-6">
+            <h4><b>Nouveau employe</b></h4>
+        </div>
+        <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+                retour</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<form class="container mt-4" [formGroup]="MyForm">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="pcrenom" placeholder="Dst" formControlName="prenom" >
+        <label for="Prenom">Prenom</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Nom" placeholder="Ndiaye" formControlName="nom">
+        <label for="Nom">Nom</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
+        <label for="email">Email </label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Address" placeholder="Medina" formControlName="address">
+        <label for="Address">Address</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="texte" class="form-control" id="telephone" placeholder="name@example.com" formControlName="telephone">
+        <label for="telephone"> Telephone</label>
+    </div>
+  
+    <div class="table-footer mb-3 ">
+        <button class="btn btn-success" (click)="AddEmployee()" [disabled]="MyForm.invalid" >Submit</button>
+    </div>
+</form>

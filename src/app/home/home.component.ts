@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Employee } from '../modeles/employee.modele';
+import { EmployeeService } from '../Services/employee.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor( private employeeservices: EmployeeService , private router: Router ) { }
+
+  listeEmployer!: Employee[] ;
 
   ngOnInit(): void {
+
+    this.listeEmployer = this.employeeservices.getListeEmployer() ;
+  }
+
+
+  deleteEmployeeConfirmation(){
+
+  }
+
+
+  AddEmployee(){
+
+    this.router.navigateByUrl("/AddEmployee")
   }
 
 }
