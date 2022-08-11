@@ -12,8 +12,9 @@
 
 
 
-
-<form class="container mt-4" [formGroup]="MyForm">
+<div class=" container ajoueEmployer">
+    
+<form class="container mt-4" [formGroup]="MyForm" (ngSubmit)="AddEmployee()"  >
     <div class="form-floating mb-3">
         <input type="text" class="form-control" id="pcrenom" placeholder="Dst" formControlName="prenom" >
         <label for="Prenom">Prenom</label>
@@ -31,11 +32,30 @@
         <label for="Address">Address</label>
     </div>
     <div class="form-floating mb-3">
-        <input type="texte" class="form-control" id="telephone" placeholder="name@example.com" formControlName="telephone">
+        <input type="number" class="form-control" id="telephone" placeholder="777000000" formControlName="telephone">
         <label for="telephone"> Telephone</label>
     </div>
   
     <div class="table-footer mb-3 ">
-        <button class="btn btn-success" (click)="AddEmployee()" [disabled]="MyForm.invalid" >Submit</button>
+        <button class="btn btn-success"  [disabled]="MyForm.invalid" >Submit</button>
     </div>
 </form>
+
+
+<div class="card" style="width: 18rem;" *ngIf="EmployeePreview$ | async as Employer" >
+    <img src={{Employer.imageUrl}} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ Employer.nom }}</li>
+      <li class="list-group-item">{{ Employer.prenom }}</li>
+      <li class="list-group-item">{{ Employer.email }}</li>
+      <li class="list-group-item">{{ Employer.address }}</li>
+      <li class="list-group-item">{{ Employer.tel }}</li>
+    </ul>
+  
+  </div>
+</div>

@@ -14,13 +14,25 @@ export class HomeComponent implements OnInit {
 
   listeEmployer!: Employee[] ;
 
+  confirmation_supprssion!:boolean ;
+
   ngOnInit(): void {
 
     this.listeEmployer = this.employeeservices.getListeEmployer() ;
+    this.confirmation_supprssion = false ;
   }
 
 
-  deleteEmployeeConfirmation(){
+  deleteEmployeeConfirmation( EmpId: number ){
+
+      this.confirmation_supprssion = confirm("Voulez-vous supprimer L'utilisateur ?")
+
+      if (this.confirmation_supprssion) {
+       
+       this.listeEmployer =  this.employeeservices.deleteEmployee( EmpId )
+      }
+      
+
 
   }
 

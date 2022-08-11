@@ -1,1 +1,26 @@
-<p>edit-employee works!</p>
+<form class="container mt-4"    >
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="pcrenom" placeholder="Dst"  [(ngModel)]="Employer.prenom"  name="prenom">
+        <label for="Prenom">Prenom</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Nom" placeholder="Ndiaye" [(ngModel)]="Employer.nom" name="nom">
+        <label for="Nom">Nom</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" [(ngModel)]="Employer.email" name="email">
+        <label for="email">Email </label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Address" placeholder="Medina" [(ngModel)]="Employer.address"  name="address"> 
+        <label for="Address">Address</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="telephone" placeholder="777000000" [(ngModel)]="Employer.tel" name="tel">
+        <label for="telephone"> Telephone</label>
+    </div>
+  
+    <div class="table-footer mb-3 ">
+        <button class="btn btn-success" (click)="retour()" >Submit</button>
+    </div>
+</form>
