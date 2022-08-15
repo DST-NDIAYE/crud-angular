@@ -27,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let employee of listeEmployer">
+                    <tr *ngFor="let employee of listeEmployer$ | async  ">
                         <td>{{ employee.id }}</td>
                         <td>{{ employee.prenom }}</td>
                         <td>{{ employee.nom }}</td>
@@ -44,7 +44,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td *ngIf="listeEmployer.length === 0" colspan="6">La liste est vide </td>
+                        <!-- <td *ngIf="listeEmployer.length === 0" colspan="6">La liste est vide </td> -->
                     </tr>
                 </tbody>
             </table>

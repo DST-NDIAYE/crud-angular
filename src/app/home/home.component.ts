@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Employee } from '../modeles/employee.modele';
 import { EmployeeService } from '../Services/employee.service';
 
@@ -13,12 +14,14 @@ export class HomeComponent implements OnInit {
   constructor( private employeeservices: EmployeeService , private router: Router ) { }
 
   listeEmployer!: Employee[] ;
+  listeEmployer$!: Observable<Employee[]> ;
 
   confirmation_supprssion!:boolean ;
 
   ngOnInit(): void {
 
-    this.listeEmployer = this.employeeservices.getListeEmployer() ;
+    this.listeEmployer$ = this.employeeservices.getListeEmployer() ;
+    
     this.confirmation_supprssion = false ;
   }
 

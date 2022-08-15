@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Employee } from '../modeles/employee.modele';
 
 @Injectable({
@@ -6,60 +8,16 @@ import { Employee } from '../modeles/employee.modele';
 })
 export class EmployeeService {
 
-  constructor() { }
+  constructor(  private http: HttpClient  ) { }
 
-  listeDesEmployee: Employee[] = [
-    {
-      id: 1,
-      prenom: 'DST',
-      nom: 'Ndiaye',
-      email: 'dstndiaye@gmail.com',
-      address: 'Medina',
-      tel: '77 326 34 01',
-      imageUrl: '../../assets/images/image2.jpg'
-    },
-    {
-      id: 2,
-      prenom: 'DST',
-      nom: 'Ndiaye',
-      email: 'dstndiaye@gmail.com',
-      address: 'Medina',
-      tel: '77 326 34 01',
-      imageUrl: '../../assets/images/image2.jpg'
-    },
-    {
-      id: 3,
-      prenom: 'DST',
-      nom: 'Ndiaye',
-      email: 'dstndiaye@gmail.com',
-      address: 'Medina',
-      tel: '77 326 34 01',
-      imageUrl: '../../assets/images/image2.jpg'
-    },
-    {
-      id: 4,
-      prenom: 'DST',
-      nom: 'Ndiaye',
-      email: 'dstndiaye@gmail.com',
-      address: 'Medina',
-      tel: '77 326 34 01',
-      imageUrl: '../../assets/images/image2.jpg'
-    },
-    {
-      id: 5,
-      prenom: 'DST',
-      nom: 'Ndiaye',
-      email: 'dstndiaye@gmail.com',
-      address: 'Medina',
-      tel: '77 326 34 01',
-      imageUrl: '../../assets/images/image2.jpg'
-    },
-
-  ];
+  listeDesEmployee: Employee[] = [];
 
 
-  getListeEmployer() {
-    return this.listeDesEmployee;
+  getListeEmployer(): Observable<Employee[]> {
+    // return this.listeDesEmployee;
+
+    return this.http.get<Employee[]>('http://localhost:3000/api/listeDesEmployee');
+
   }
 
 
